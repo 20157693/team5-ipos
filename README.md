@@ -39,3 +39,11 @@ A simple Tic Tac Toe game built with Python and Flask. This application allows t
 4. **Open your web browser:**
 
    Go to `http://127.0.0.1:5000` to play the game.
+
+
+
+**Group Process**
+1 - If working on a feature/bug, create it in the issues pannel first so others don't double up on work or work on the same segment of code you are working on
+2 - When completed, submit it through PR and wait for confirmation/reviewing from at least 3 members.
+ - if not passed, review feedback and apply it then repeat the previous step.
+3 - When successfully reviewd, confirm the PR and mark the issue as complete.
