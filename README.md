@@ -43,10 +43,11 @@ A simple Tic Tac Toe game built with Python and Flask. This application allows t
 
 
 ## Group Process
+1. Before working on anything or deciding on what to work on, please check and review completed issues as to make sure you aren't working on a task thats already been completed
 
-1. If working on a feature/bug, create it in the issues panel first so others don't double up on work or work on the same segment of code you are working on.
+2. If working on a feature/bug, create it in the issues panel first so others don't double up on work or work on the same segment of code you are working on.
 
-2. When completed, submit it through PR and wait for confirmation/reviewing from at least 3 members.
+3. When completed, submit it through PR and wait for confirmation/reviewing from at least 3 members.
    - If not passed, review feedback and apply it, then repeat the previous step.
 
-3. When successfully reviewed, confirm the PR and mark the issue as complete.
+4. When successfully reviewed, confirm the PR and mark the issue as complete.
