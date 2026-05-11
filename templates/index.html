@@ -22,6 +22,7 @@
         {% else %}
         <p class="current-player">Current Player: {{ current_player }}</p>
         {% endif %}
+        <a href="{{ url_for('game_routes.undo') }}" class="reset-button">Undo Last Move</a>
         <a href="{{ url_for('game_routes.reset') }}" class="reset-button">Reset Game</a>
     </div>
 </body>
