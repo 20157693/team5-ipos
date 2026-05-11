@@ -10,9 +10,16 @@
 <body>
     <div class="container">
         <h1>Tic Tac Toe</h1>
+
         <div class="board">
             {% for index in range(9) %}
-            <a href="{{ url_for('game_routes.play', cell=index) }}" class="cell">{{ board[index] }}</a>
+                {% if winner or draw %}
+                    <span class="cell game-over-cell">{{ board[index] }}</span>
+                {% else %}
+                    <a href="{{ url_for('game_routes.play', cell=index) }}" class="cell">
+                        {{ board[index] }}
+                    </a>
+                {% endif %}
             {% endfor %}
         </div>
         {% if winner %}
