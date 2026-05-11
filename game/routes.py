@@ -8,6 +8,11 @@ game_routes = Blueprint('game_routes', __name__)
 board = [' '] * 9
 current_player = 'X'
 
+# Stack used to store the history of player moves.
+# Each move is pushed onto this list when a player clicks a cell.
+# The undo feature will pop the most recent move from this stack.
+move_history = []
+
 
 @game_routes.route('/')
 def index():
@@ -18,18 +23,41 @@ def index():
 
 @game_routes.route('/play/<int:cell>')
 def play(cell):
-    # breakpoint()
-    global current_player
+    global current_player, move_history
+
+    # Only allow the move if the selected cell is empty.
     if board[cell] == ' ':
+        # Push the move onto the stack before changing players.
+        move_history.append((cell, current_player))
+
         board[cell] = current_player
+
         if not check_winner(board):
             current_player = 'O' if current_player == 'X' else 'X'
+
+    return redirect(url_for('game_routes.index'))
+
+
+@game_routes.route('/undo')
+def undo():
+    global current_player, move_history
+
+    # Undo uses stack behaviour:
+    # pop() removes the most recent move from move_history.
+    if move_history:
+        cell, player = move_history.pop()
+        board[cell] = ' '
+        current_player = player
+
     return redirect(url_for('game_routes.index'))
 
 
 @game_routes.route('/reset')
 def reset():
-    global board, current_player
+    global board, current_player, move_history
+
     board = [' '] * 9
     current_player = 'X'
+    move_history = []
+
     return redirect(url_for('game_routes.index'))

@@ -51,3 +51,40 @@ A simple Tic Tac Toe game built with Python and Flask. This application allows t
    - If not passed, review feedback and apply it, then repeat the previous step.
 
 4. When successfully reviewed, confirm the PR and mark the issue as complete.
+
+
+
+## Undo Last Move Feature
+
+The Tic Tac Toe game includes an **Undo Last Move** feature.
+
+This feature uses a stack data structure called `move_history`.
+
+### How it works
+
+- When a player makes a valid move, the move is pushed onto the `move_history` stack.
+- Each stack item stores the board cell and the player who made the move.
+- When the user clicks **Undo Last Move**, the most recent move is popped from the stack.
+- The selected board cell is cleared.
+- The current player is changed back to the player who made the undone move.
+- When the game is reset, the stack is cleared.
+
+### Requirement covered
+
+This feature satisfies the requirement for:
+
+```text
+stack/queues/linked lists & hashing
+```
+### Testing
+
+Unit tests were added in:
+
+```text
+tests/test_undo_stack.py
+```
+The tests check that:
+
+- A move is added to the stack.
+- Undo removes the most recent move.
+- Reset clears the stack.
