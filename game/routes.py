@@ -25,6 +25,10 @@ def index():
 def play(cell):
     global current_player, move_history
 
+    # Do not allow more moves after the game has ended.
+    if check_winner(board) or check_draw(board):
+        return redirect(url_for('game_routes.index'))
+
     # Only allow the move if the selected cell is empty.
     if board[cell] == ' ':
         # Push the move onto the stack before changing players.
