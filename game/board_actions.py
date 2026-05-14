@@ -38,7 +38,7 @@ def undo():
 
 @game_routes.route('/reset')
 def reset():
-    state['board'][:] = [' '] * 9
+    state['board'] = {i: ' ' for i in range(9)}
     state['current_player'] = 'X'
     move_history.clear()
     return redirect(url_for('game_routes.index'))

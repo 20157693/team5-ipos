@@ -1,5 +1,5 @@
 # Initialise game board and current player
-state = {'board': [' '] * 9, 'current_player': 'X'}
+state = {'board': {i: ' ' for i in range(9)}, 'current_player': 'X'}
 
 # Stack used to store the history of player moves.
 # Each move is pushed onto this list when a player clicks a cell.
